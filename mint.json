@@ -15,14 +15,8 @@
       "to": "#07C983"
     }
   },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:founders@supercontrast.com"
-    }
-  ],
   "topbarCtaButton": {
-    "name": "Dashboard",
+    "name": "Learn More",
     "url": "https://supercontrast.com"
   },
   "tabs": [
@@ -33,13 +27,8 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
       "name": "Community",
-      "icon": "slack",
+      "icon": "discord",
       "url": "https://supercontrast.com/community"
     },
     {
@@ -53,33 +42,15 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "quickstart"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Tasks",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "tasks/ocr",
+        "tasks/translation",
+        "tasks/sentiment-analysis"
       ]
     }
   ],
