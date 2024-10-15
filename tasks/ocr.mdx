@@ -13,7 +13,7 @@ In this example, we'll specify that for `Task.OCR`, we want to use `Provider.GCP
 from supercontrast import SuperContrastClient, Task, Provider
 
 client = SuperContrastClient(task=Task.OCR, providers=[Provider.GCP])
-request = OCRRequest(image="https://example.com/image.png")
+request = OCRRequest(image="https://github.com/supercontrast-ai/supercontrast/raw/main/tests/image/test_ocr.png")
 response, metadata = client.request(request)
 ```
 

@@ -63,7 +63,7 @@ from supercontrast import SuperContrastClient, Task, Provider, OCRRequest
 client = SuperContrastClient(task=Task.OCR, providers=[Provider.GCP])
 
 # Create a request
-request = OCRRequest(image="https://example.com/sample-image.png")
+request = OCRRequest(image="https://github.com/supercontrast-ai/supercontrast/raw/main/tests/image/test_ocr.png")
 
 # Make the request and handle the response
 response, metadata = client.request(request)

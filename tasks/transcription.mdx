@@ -13,7 +13,7 @@ In this example, we'll use `Task.TRANSCRIPTION` with `Provider.OPENAI`, which ut
 from supercontrast import SuperContrastClient, Task, Provider, TranscriptionRequest
 
 client = SuperContrastClient(task=Task.TRANSCRIPTION, providers=[Provider.OPENAI])
-request = TranscriptionRequest(audio_file="https://example.com/audio.wav")
+request = TranscriptionRequest(audio_file="https://github.com/supercontrast-ai/supercontrast/raw/main/tests/audio/test_transcription.wav")
 response, metadata = client.request(request)
 ```
 
