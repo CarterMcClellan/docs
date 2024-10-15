@@ -3,3 +3,32 @@ title: 'OCR'
 description: 'Extract text from images'
 icon: 'eye'
 ---
+
+OCR, or Optical Character Recognition, is the process of extracting text from images.Most OCR models will return the text in the image along with the bounding boxes of the text, which represent where the text is located in the image.
+
+Running OCR with `supercontrast` is easy, all you have to do is provide the image URL and the provider you want to use.
+In this example, we'll specify that for `Task.OCR`, we want to use `Provider.GCP`, which uses Google's Vision AI API.
+
+```python
+from supercontrast import SuperContrastClient, Task, Provider
+
+client = SuperContrastClient(task=Task.OCR, providers=[Provider.GCP])
+request = OCRRequest(image="https://example.com/image.png")
+response, metadata = client.request(request)
+```
+
+Each task has it's own request and response schema. For `Task.OCR`, the request schema is defined by `OCRRequest` and the response schema is defined by `OCRResponse`. The `OCRResponse` has a list of `OCRBoundingBox` objects, each representing a bounding box of text in the image.
+
+[OCRRequest](https://github.com/supercontrast-ai/supercontrast/blob/main/src/supercontrast/task/types/ocr_types.py#L7)
+
+- `image`: a string that can be either a URL to an image or a local file path.
+
+[OCRResponse](https://github.com/supercontrast-ai/supercontrast/blob/main/src/supercontrast/task/types/ocr_types.py#L22)
+
+- `all_text`: a string of all the text in the image
+- `bounding_boxes`: a list of `OCRBoundingBox` objects, each representing a bounding box of text in the image
+
+[OCRBoundingBox](https://github.com/supercontrast-ai/supercontrast/blob/main/src/supercontrast/task/types/ocr_types.py#L14)
+
+- `text`: a string of the text in the bounding box
+- `coordinates`: a list of tuples, each representing a coordinate in the bounding box
