@@ -27,9 +27,14 @@
   ],
   "anchors": [
     {
-      "name": "Community",
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/supercontrast-ai/supercontrast"
+    },
+    {
+      "name": "Discord",
       "icon": "discord",
-      "url": "https://supercontrast.com/community"
+      "url": "https://discord.com/invite/YWsdNpgT"
     },
     {
       "name": "Blog",
@@ -41,16 +46,16 @@
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "quickstart"
+        "introduction"
       ]
     },
     {
       "group": "Tasks",
       "pages": [
         "tasks/ocr",
+        "tasks/sentiment-analysis",
         "tasks/translation",
-        "tasks/sentiment-analysis"
+        "tasks/transcription"
       ]
     }
   ],

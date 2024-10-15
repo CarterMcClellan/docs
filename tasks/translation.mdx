@@ -3,3 +3,33 @@ title: 'Translation'
 description: 'Translate text from one language to another'
 icon: 'language'
 ---
+
+Translation is the process of converting text from one language to another while preserving its meaning. This task is essential for breaking down language barriers and enabling communication across different cultures.
+
+Running Translation with `supercontrast` is straightforward. You need to provide the text to translate, specify the source and target languages, and choose the provider you want to use.
+In this example, we'll use `Task.TRANSLATION` with `Provider.AZURE` (Microsoft's Azure Translator service) to translate text from English (`source_language="en"`) to French (`target_language="fr"`).
+
+**Note:** Language codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639_language_names).
+
+```python
+from supercontrast import SuperContrastClient, Task, Provider, TranslationRequest
+
+client = SuperContrastClient(
+    task=Task.TRANSLATION,
+    providers=[Provider.AZURE],
+    source_language="en",
+    target_language="fr"
+)
+request = TranslationRequest(text="I love programming in Python!")
+response, metadata = client.request(request)
+```
+
+Each task has its own request and response schema. For `Task.TRANSLATION`, the request schema is defined by `TranslationRequest` and the response schema is defined by `TranslationResponse`.
+
+[TranslationRequest](https://github.com/supercontrast-ai/supercontrast/blob/main/src/supercontrast/task/types/translation_types.py#L6)
+
+- `text`: a string of the text to be translated.
+
+[TranslationResponse](https://github.com/supercontrast-ai/supercontrast/blob/main/src/supercontrast/task/types/translation_types.py#L13)
+
+- `text`: a string of the translated text

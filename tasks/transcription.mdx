@@ -1,0 +1,28 @@
+---
+title: 'Transcription'
+description: 'Convert speech in audio files to text'
+icon: 'microphone'
+---
+
+Transcription is the process of converting spoken words in audio files into written text. This task is crucial for making audio content accessible, searchable, and analyzable.
+
+Running Transcription with `supercontrast` is simple. You need to provide the audio file (either as a URL or a local file path) and specify the provider you want to use.
+In this example, we'll use `Task.TRANSCRIPTION` with `Provider.OPENAI`, which utilizes OpenAI's Whisper API.
+
+```python
+from supercontrast import SuperContrastClient, Task, Provider, TranscriptionRequest
+
+client = SuperContrastClient(task=Task.TRANSCRIPTION, providers=[Provider.OPENAI])
+request = TranscriptionRequest(audio_file="https://github.com/supercontrast-ai/supercontrast/raw/main/tests/audio/test_transcription.wav")
+response, metadata = client.request(request)
+```
+
+Each task has its own request and response schema. For `Task.TRANSCRIPTION`, the request schema is defined by `TranscriptionRequest` and the response schema is defined by `TranscriptionResponse`.
+
+[TranscriptionRequest](https://github.com/supercontrast-ai/supercontrast/blob/main/src/supercontrast/task/types/transcription_types.py#L6)
+
+- `audio_file`: a string that can be either a URL to an audio file or a local file path.
+
+[TranscriptionResponse](https://github.com/supercontrast-ai/supercontrast/blob/main/src/supercontrast/task/types/transcription_types.py#L13)
+
+- `text`: a string containing the transcribed text from the audio file.

@@ -21,3 +21,60 @@ Getting started with supercontrast is easy. You can install via pip:
 ```bash
 pip install supercontrast
 ```
+
+## Quick Start
+
+Supercontrast provides a unified interface for various AI tasks across different cloud providers. Here's a quick introduction on how to use it:
+
+1. Import the necessary classes:
+
+```python
+from supercontrast import SuperContrastClient, Task, Provider, OCRRequest
+```
+
+2. Initialize a SuperContrastClient for your desired task and provider:
+
+```python
+client = SuperContrastClient(task=Task.OCR, providers=[Provider.GCP])
+```
+
+3. Create a request object for your task:
+
+```python
+request = OCRRequest(image="path/to/image.png")
+```
+
+4. Make the request and handle the response:
+
+```python
+response, metadata = client.request(request)
+print(f"Response: {response}")
+print(f"Metadata: {metadata}")
+```
+
+## Example
+
+Here's a complete example that demonstrates how to use supercontrast for OCR:
+
+````python
+from supercontrast import SuperContrastClient, Task, Provider, OCRRequest
+
+# Initialize the client
+client = SuperContrastClient(task=Task.OCR, providers=[Provider.GCP])
+
+# Create a request
+request = OCRRequest(image="https://github.com/supercontrast-ai/supercontrast/raw/main/tests/image/test_ocr.png")
+
+# Make the request and handle the response
+response, metadata = client.request(request)
+
+# Print the results
+print(f"Extracted text: {response}")
+print(f"Metadata: {metadata}")
+````
+
+This example shows how to perform OCR on an image using Google Cloud Platform as the provider. The same pattern can be applied to other tasks and providers supported by supercontrast.
+
+For other tasks, see the [Tasks](/tasks) section of the documentation.
+
+To set up providers, see the [Providers](/providers) section of the documentation.

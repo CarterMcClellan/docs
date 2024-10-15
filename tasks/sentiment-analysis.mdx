@@ -3,3 +3,26 @@ title: 'Sentiment Analysis'
 description: 'Score text on a scale of positive, negative, or neutral'
 icon: 'face-laugh-wink'
 ---
+
+Sentiment Analysis is the process of determining the emotional tone behind a series of words, used to gain an understanding of the attitudes, opinions and emotions expressed within an online mention.
+
+Running Sentiment Analysis with `supercontrast` is easy, all you have to do is provide the text and the provider you want to use.
+In this example, we'll specify that for `Task.SENTIMENT_ANALYSIS`, we want to use `Provider.AWS`, which uses Amazon's Comprehend API.
+
+```python
+from supercontrast import SuperContrastClient, Task, Provider, SentimentAnalysisRequest
+
+client = SuperContrastClient(task=Task.SENTIMENT_ANALYSIS, providers=[Provider.AWS])
+request = SentimentAnalysisRequest(text="I love programming in Python!")
+response, metadata = client.request(request)
+```
+
+Each task has its own request and response schema. For `Task.SENTIMENT_ANALYSIS`, the request schema is defined by `SentimentAnalysisRequest` and the response schema is defined by `SentimentAnalysisResponse`.
+
+[SentimentAnalysisRequest](https://github.com/supercontrast-ai/supercontrast/blob/main/src/supercontrast/task/types/sentiment_analysis_types.py#L6)
+
+- `text`: a string of the text to analyze for sentiment.
+
+[SentimentAnalysisResponse](https://github.com/supercontrast-ai/supercontrast/blob/main/src/supercontrast/task/types/sentiment_analysis_types.py#L13)
+
+- `score`: a float between 0 and 1, representing the sentiment of the text.
